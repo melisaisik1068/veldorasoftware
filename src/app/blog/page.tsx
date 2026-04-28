@@ -6,7 +6,8 @@ import BlogGrid from './components/BlogGrid';
 
 export const metadata: Metadata = {
   title: 'Teknik Blog — Veldora Yazılım',
-  description: 'Next.js 16, TypeScript ve modern web mimarisi üzerine derinlemesine teknik makaleler. E-A-T odaklı içerik.',
+  description:
+    'Next.js 16, TypeScript ve modern web mimarisi üzerine derinlemesine teknik makaleler. E-A-T odaklı içerik.',
 };
 
 export default function BlogPage() {

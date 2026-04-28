@@ -7,7 +7,8 @@ import ServicesCTA from './components/ServicesCTA';
 
 export const metadata: Metadata = {
   title: 'Hizmetler — Veldora Yazılım',
-  description: 'Full-stack geliştirme, frontend mimarisi, API tasarımı, performans optimizasyonu ve teknik danışmanlık hizmetleri. Next.js 16 ve TypeScript uzmanı.',
+  description:
+    'Full-stack geliştirme, frontend mimarisi, API tasarımı, performans optimizasyonu ve teknik danışmanlık hizmetleri. Next.js 16 ve TypeScript uzmanı.',
 };
 
 export default function ServicesPage() {
@@ -20,7 +21,14 @@ export default function ServicesPage() {
             '@context': 'https://schema.org',
             '@type': 'Service',
             provider: { '@type': 'Organization', name: 'Veldora Yazılım' },
-            serviceType: ['Full-Stack Development', 'Frontend Architecture', 'Performance Optimization', 'API Design', 'DevOps', 'Technical Consulting'],
+            serviceType: [
+              'Full-Stack Development',
+              'Frontend Architecture',
+              'Performance Optimization',
+              'API Design',
+              'DevOps',
+              'Technical Consulting',
+            ],
             areaServed: 'Worldwide',
           }),
         }}

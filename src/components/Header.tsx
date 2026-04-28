@@ -27,7 +27,9 @@ export default function Header() {
     } else {
       document.body.style.overflow = '';
     }
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [menuOpen]);
 
   return (
@@ -35,7 +37,7 @@ export default function Header() {
       <nav
         className={`fixed w-full z-50 top-0 transition-all duration-500 ${
           scrolled
-            ? 'bg-[#050A14]/90 backdrop-blur-xl border-b border-[#1E3A5F]/60 shadow-lg shadow-black/20'
+            ? 'bg-white/85 backdrop-blur-xl border-b border-border shadow-sm'
             : 'bg-transparent border-b border-transparent'
         }`}
       >
@@ -47,20 +49,20 @@ export default function Header() {
               onClick={() => {}}
               className="transition-transform duration-300 group-hover:scale-110"
             />
-            <span className="font-display text-lg font-semibold text-white tracking-tight hidden sm:block">
+            <span className="font-display text-lg font-semibold text-foreground tracking-tight hidden sm:block">
               Veldora
-              <span className="text-accent"> Yazılım</span>
+              <span className="text-primary"> Yazılım</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[#94A3B8]">
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             {navLinks?.map((link) => (
               <Link
                 key={link?.href}
                 href={link?.href}
-                className={`transition-colors duration-200 hover:text-white relative group ${
-                  pathname === link?.href ? 'text-white' : ''
+                className={`transition-colors duration-200 hover:text-foreground relative group ${
+                  pathname === link?.href ? 'text-foreground' : ''
                 }`}
               >
                 {link?.label}
@@ -73,19 +75,27 @@ export default function Header() {
             ))}
             <Link
               href="/homepage#contact"
-              className="px-5 py-2.5 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-blue-500 transition-all duration-300 glow-blue-sm hover:scale-105 active:scale-95"
+              className="px-5 py-2.5 bg-primary text-primary-foreground rounded-lg text-sm font-semibold hover:bg-blue-600 transition-all duration-300 glow-blue-sm hover:scale-105 active:scale-95 shadow-sm"
             >
-              Proje Başlat
+              Teklif Al
             </Link>
           </div>
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+            className="md:hidden text-foreground p-2 rounded-lg hover:bg-muted transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menüyü aç/kapat"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            >
               {menuOpen ? (
                 <>
                   <line x1="18" y1="6" x2="6" y2="18" />
@@ -105,7 +115,7 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       {menuOpen && (
         <div
-          className="fixed inset-0 z-40 bg-[#050A14]/95 backdrop-blur-xl flex flex-col pt-24 px-6"
+          className="fixed inset-0 z-40 bg-white/92 backdrop-blur-xl flex flex-col pt-24 px-6"
           onClick={() => setMenuOpen(false)}
         >
           <div className="flex flex-col gap-2" onClick={(e) => e?.stopPropagation()}>
@@ -114,8 +124,8 @@ export default function Header() {
                 key={link?.href}
                 href={link?.href}
                 onClick={() => setMenuOpen(false)}
-                className={`py-4 px-4 text-xl font-semibold border-b border-[#1E3A5F]/40 transition-colors ${
-                  pathname === link?.href ? 'text-accent' : 'text-foreground hover:text-accent'
+                className={`py-4 px-4 text-xl font-semibold border-b border-border transition-colors ${
+                  pathname === link?.href ? 'text-primary' : 'text-foreground hover:text-primary'
                 }`}
                 style={{ animationDelay: `${i * 0.08}s` }}
               >
@@ -125,9 +135,9 @@ export default function Header() {
             <Link
               href="/homepage#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-6 px-6 py-4 bg-primary text-white rounded-xl text-center text-lg font-bold hover:bg-blue-500 transition-colors"
+              className="mt-6 px-6 py-4 bg-primary text-primary-foreground rounded-xl text-center text-lg font-bold hover:bg-blue-600 transition-colors shadow-sm"
             >
-              Proje Başlat
+              Teklif Al
             </Link>
           </div>
         </div>

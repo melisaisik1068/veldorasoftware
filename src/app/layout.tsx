@@ -18,7 +18,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'Veldora Yazılım — Next.js & TypeScript Uzmanlığı',
-  description: 'Veldora Yazılım, 5 yıllık full-stack deneyimiyle Next.js 16 ve TypeScript ile ölçeklenebilir, mimari-kalitede yazılım çözümleri üretir.',
+  description:
+    'Veldora Yazılım, 5 yıllık full-stack deneyimiyle Next.js 16 ve TypeScript ile ölçeklenebilir, mimari-kalitede yazılım çözümleri üretir.',
   icons: {
     icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
   },
@@ -29,14 +30,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="tr" className={manrope.variable}>
-      <body className={manrope.className}>
-        {children}
-</body>
+      <body className={manrope.className}>{children}</body>
     </html>
   );
 }
